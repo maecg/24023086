@@ -1,0 +1,22 @@
+//crie um programa que leia 3 números e imprama-os na ordem inversa
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+
+
+int main(){
+    setlocale(LC_ALL, "O")
+    double x, y, z;
+    int x_int = (int)floor(x);
+    int z_int = (int)floor(z);
+    int y_int = (int)floor(y);
+    double x_d = x - x_int;
+    double y_d = y - y_int;
+    double z_d = z - z_int;
+
+    printf("Digite 3 números: ");
+    scanf("%lf %lf %lf", &x, &y, &z);
+
+    printf("A ordem inveresa é: \n%lf\n%lf\n%lf", z, y, x);
+}
