@@ -1,0 +1,28 @@
+//Investimento na bolsa, no qual o usuário escolhe em qual das 3 opções deseja investir e a quantidade de dinheiro
+//além de mostrar o seu DY = valor do dividendo por ação/ preço da ação
+#include <stdio.h>
+#include <locale.h>
+
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+    float q1, q2, q3, dy1, dy2, dy3, c1, c2, c3, valor_inicial;
+    valor_inicial = 1000.0;
+
+    printf("Escolha a quantidade por ação entre estas para investir:\n \tação 1- R$24,13/unidade \tação 2 - R$11,00/unidade \tação 3 - R$38,65/unidade \n");
+    scanf("%f%f%f", &q1, &q2,&q3);
+
+    c1= q1*24.13;
+    c2 = q2*11;
+    c3 = q3*38.65;
+
+    if(c1 + c2 + c3 > 1000.0){
+        printf("Saldo insuficiente - recomeçar!");
+    }else{
+        dy1= q1*17/24.13;
+        dy2 = q2*35/11;
+        dy3 = q3*25/38.65;
+
+        printf("A quantidade de Dividend Yield por cada ação comprada será:\n \t ação 1 - R$ %.2f \t ação 2 - R$ %.2f \t ação 3 - R$ %.2f", dy1, dy2, dy3);
+    }
+    return 0;
+}
