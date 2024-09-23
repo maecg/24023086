@@ -13,9 +13,9 @@ int main(){
     }else if(t>=1 && t<=15){
         printf("Frio - Pode precisar de um casaco!");
     }else if(t>=16 && t<=25){
-        printf("Agrad�vel - Tempo bom para sair!");
+        printf("Agradável - Tempo bom para sair!");
     }else if(t>=26 && t<=35){
-        printf("Quente - �timopara  um dia de praia!");
+        printf("Quente - Ótimo para  um dia de praia!");
     }else{
         pintf("Muto quente - Mantenha-se hidratado!");
     }
