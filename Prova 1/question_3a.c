@@ -11,6 +11,6 @@ int main(){
     c = (f-32)*(5.0/9.0);
 
     printf("A temperatura em celsius é: %lf", c);
-    //como meu RA term�na com 86 = (86-32)*0.55 = 30
+    //como meu RA termína com 86 = (86-32)*0.55 = 30
     return 0;
 }
