@@ -10,9 +10,9 @@ int main(){
     scanf("%f", &t);
 
     if(t<-10){
-        printf("Risco baixo - condi��es aceit�veis congelados");
+        printf("Risco baixo - condições aceitáveis congelados");
     }else if(t>=-10 && t<=0){
-        printf("Risco moderado - Condi���es aceit�veis para armazenamentto refrigeraddo");
+        printf("Risco moderado - Condições aceitáveis para armazenamentto refrigeraddo");
     }else if(t>=1 && t<=10 || t == 15){
         printf("Risco Alto - Monitore a teperaturaa");
     }else{
