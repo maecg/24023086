@@ -16,7 +16,7 @@ int main(){
     }else if(t>=1 && t<=10 || t == 15){
         printf("Risco Alto - Monitore a teperaturaa");
     }else{
-        printf("Risco cr�tico - A��o imediata necess�ri!");
+        printf("Risco critico - Ação imediata necessári!");
     }
     return 0;
 }
