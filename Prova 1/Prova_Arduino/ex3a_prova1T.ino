@@ -12,10 +12,10 @@ void loop(){
     String input = Serial.readString();
     f = input.toFloat();
 
-    c = (f-32)*5.0/9.0;
+    c = (f-32)*5.0/9.0;//como os 3 últimos dígitos do meu ra é 086, retorna 30.00
 
     Serial.println("A temperatura em graus Celsius é: ");
-    Serial.println(c);
+    Serial.println(c,2);
 
     Serial.println("Insira a temperatura em graus Ferenheit: ");
 
