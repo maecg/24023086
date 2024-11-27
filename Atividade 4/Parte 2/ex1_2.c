@@ -8,11 +8,11 @@ int main() {
     char res[10];
     int f = 0, d = 0;
 
-    printf("\t\tCENTRAL DE CONTROLE DO ROBÔ\n");
+    printf("\t\tCENTRAL DE CONTROLE DO ROBÃ”\n");
 
     do {
-        printf("\nVocê se encontra em (%d,%d) no mapa", d, f);
-        printf("\nDeseja se movimentar para qual direção?\n");
+        printf("\nVocÃª se encontra em (%d,%d) no mapa", d, f);
+        printf("\nDeseja se movimentar para qual direÃ§Ã£o?\n");
         printf("\t[frente]\n");
         printf("\t[esquerda]\n");
         printf("\t[direita]\n");
@@ -22,38 +22,38 @@ int main() {
         fgets(res, sizeof(res), stdin);
         res[strcspn(res, "\n")] = 0;
 
-        printf("Você escolheu: %s\n", res);
+        printf("VocÃª escolheu: %s\n", res);
 
         if (strcmp(res, "frente") == 0) {
             f++;
             if (f < 10) {
-                printf("Você se moveu para frente\n");
+                printf("VocÃª se moveu para frente\n");
             } else {
-                printf("Você chegou numa parte da borda superior do mapa.\nEscolha outra direção!\n");
+                printf("VocÃª chegou numa parte da borda superior do mapa.\nEscolha outra direÃ§Ã£o!\n");
                 f--;
             }
         } else if (strcmp(res, "direita") == 0) {
             d++;
             if (d < 10) {
-                printf("Você se movimentou para a direita\n");
+                printf("VocÃª se movimentou para a direita\n");
             } else {
-                printf("Você chegou a borda lateral direita. Escolha outra direção!\n");
+                printf("VocÃª chegou a borda lateral direita. Escolha outra direÃ§Ã£o!\n");
                 d--;
             }
         } else if (strcmp(res, "esquerda") == 0) {
             d--;
             if (d >= 0) {
-                printf("Você se movimentou para a esquerda\n");
+                printf("VocÃª se movimentou para a esquerda\n");
             } else {
-                printf("Você chegou a borda lateral esquerda. Escolha outra direção!\n");
+                printf("VocÃª chegou a borda lateral esquerda. Escolha outra direÃ§Ã£o!\n");
                 d++;
             }
         } else if (strcmp(res, "baixo") == 0) {
             f--;
             if (f >= 0) {
-                printf("Você se moveu para baixo\n");
+                printf("VocÃª se moveu para baixo\n");
             } else {
-                printf("Você chegou numa parte da borda inferior do mapa.\nEscolha outra direção!\n");
+                printf("VocÃª chegou numa parte da borda inferior do mapa.\nEscolha outra direÃ§Ã£o!\n");
                 f++;
             }
         }
