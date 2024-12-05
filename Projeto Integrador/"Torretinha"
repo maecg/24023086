@@ -1,0 +1,97 @@
+#include <Servo.h>
+#include <stdio.h>
+
+Servo motor;
+Servo re;
+Servo mradar;
+const int trigpin = 12;
+const int echopin = 13;
+int p = 0, q = 0;
+
+void setup(){
+  pinMode(trigpin, OUTPUT);
+  pinMode(echopin, INPUT);
+  motor.attach(9);
+  re.attach(4);
+  mradar.attach(6);
+  Serial.begin(9600);
+  while(!Serial){
+    ;
+  }
+  motor.write(90);
+  re.write(90);
+}
+
+
+void atacar(){
+  Serial.println("Atacando...");
+  for(int i = 180; i>-1; i--){
+    Serial.println("Movendo..");
+    motor.write(i);
+    re.write(120-i);
+  }
+  delay(1000);
+  Serial.println("Recarregando");
+  motor.write(90);
+  re.write(90);
+}
+//função do funcionamento do radar
+void radar(){
+  float dis, time;//declaração das variáveis dis(distância) e time(de tempo)
+  //inicialização do sensor ultrassônico
+  digitalWrite(trigpin, HIGH);
+  delay(2);
+  digitalWrite(trigpin, LOW);
+  delay(2);
+  digitalWrite(trigpin, HIGH);
+
+//dando utilidade as variáveis
+  time = pulseIn(echopin, HIGH);
+  dis = 0.017*time;
+  //inicialuzando a função encontrar que procura alvos
+  encontrar(&dis);
+  //condição para atacar
+  if(dis<20 && dis > 0){
+    atacar();
+  }
+  //para co--
+  mradar.write(q);
+  if(p == 0){
+    if(q<150){
+      q+=10;//atualização do ângulo após checar em encontrar();
+    }
+  }else{
+    if(q>0){
+      q-=10;
+    }
+  }
+  //Serve para fazer ir e voltar
+  if(q == 0){
+    p--;
+  }else if(q == 90){
+    p++;
+  }
+}
+
+void encontrar(float* dis//usado como ponteiro para melhorar a performance){
+  if(*dis != 0){
+    //condição de distância
+    if(*dis < 20){
+      Serial.print("Algo entrou no range ");
+      Serial.print(*dis);
+      Serial.print(" cm");
+      Serial.print("e com ângulo ");
+      Serial.print(q);//
+      Serial.println(" graus");
+    }else if(*dis>100){
+      Serial.print("Nada detectado\n");
+    }else{
+      Serial.println("Algo detectado, mas fora do alcance!");
+    }
+  }
+}
+
+//ficar rodando continuamente
+void loop(){
+  radar();
+}
